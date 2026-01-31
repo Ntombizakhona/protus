@@ -1,0 +1,16 @@
+{
+  "name": "protus",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "web:dev": "pnpm --filter @protus/web dev",
+    "api:dev": "pnpm --filter @protus/api dev",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "cdk:bootstrap": "pnpm --filter @protus/infra cdk bootstrap",
+    "cdk:deploy": "pnpm --filter @protus/infra cdk deploy",
+    "cdk:destroy": "pnpm --filter @protus/infra cdk destroy",
+    "kiro:check": "node -e \"const fs=require('fs');['.kiro/steering/prd.md','.kiro/steering/commands.md','.kiro/devlog/2026-01-30.md'].forEach(p=>{if(!fs.existsSync(p))throw new Error('Missing '+p)});console.log('✅ .kiro ready')\""
+  }
+}
